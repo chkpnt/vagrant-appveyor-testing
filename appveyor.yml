@@ -15,7 +15,7 @@ init:
 - ps: Start-FileDownload "https://releases.hashicorp.com/vagrant/2.2.2/vagrant_2.2.2_x86_64.msi"
 - ps: Start-Process -FilePath "msiexec.exe" -ArgumentList "/a vagrant_2.2.2_x86_64.msi /qb TARGETDIR=C:\Vagrant" -Wait
 - ps: Start-FileDownload "http://download.virtualbox.org/virtualbox/4.3.12/VirtualBox-4.3.12-93733-Win.exe"
-- ps: Start-Process -FilePath "VirtualBox-4.3.12-93733-Win.exe" -ArgumentList "-silent -logging -msiparams INSTALLDIR=C:\VBox-4.3.12" -Wait
+- ps: Start-Process -FilePath "VirtualBox-4.3.12-93733-Win.exe" -ArgumentList "-logging -msiparams INSTALLDIR=C:\VBox-4.3.12" -Wait
 - cd $env:APPVEYOR_BUILD_FOLDER
 - ps: |
     While ((Test-NetConnection google.com -Port 80 -InformationLevel Quiet) -ne "True") {
